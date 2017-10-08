@@ -1,0 +1,67 @@
+
+:::::::::::::::::::::::::::::::::::::
+init
+-------------------------------------
+ng new [project name]
+ng install -save @ngrx/store
+ng install -save @ngrx/effects
+ng install -save @ngrx/router-store
+ng install -save @ngrx/store-devtools
+ng install -save ngrx-store-freeze
+:::::::::::::::::::::::::::::::::::::
+
+
+:::::::::::::::::::::::::::::::::::::
+create root module and register it in app module
+-------------------------------------
+ng generate module core
+move app component parts to core/containers/app
+add decleration/exports for core module (AppComponent)
+add forRoot implementation in CoreModule 
+	return {ngModule: CoreModule}
+add CoreModule.forRoot() in AppModule imports
+:::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::::::::::::::::::::
+create initial empty reducers/state
+-------------------------------------
+create app/reducers/index.ts
+	create & export empty State interface 
+	create & export empty reducers: ActionReducerMap<State>
+
+app.module:
+	add StoreModule.forRoot(reducers, {}) to imports
+:::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::::::::::::::::::::
+add meta reducers (logger, freeze) & debug time travel support
+-------------------------------------
+create app/reducers/index
+	import storefreeze
+	create & export logger: ActionReducer<State> (logs state/action)
+	create & export metaReducers: MetaReducer<State>[] (logger & storeFreeze when in dev, empty otherwise)
+
+app.module:
+	add StoreDevtoolsModule.instrument() to imports if in dev
+	add StoreModule.forRoot(reducers, {metaReducers}) to imports
+:::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::::::::::::::::::::
+
+-------------------------------------
+
+:::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::::::::::::::::::::
+
+-------------------------------------
+
+:::::::::::::::::::::::::::::::::::::
