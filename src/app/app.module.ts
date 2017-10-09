@@ -5,8 +5,9 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {CoreModule} from './core/core.module';
 import {AppComponent} from './core/containers/app/app.component';
-import {metaReducers, reducers} from './reducers/index';
+import {reducers} from './core/reducers/index';
 import {StoreModule} from '@ngrx/store';
+import {metaReducers} from './reducers/index';
 
 @NgModule({
   declarations: [
