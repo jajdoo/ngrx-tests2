@@ -28,8 +28,7 @@ add CoreModule.forRoot() in AppModule imports
 create initial empty reducers/state
 -------------------------------------
 create app/reducers/index.ts
-	create & export empty State interface 
-	create & export empty reducers: ActionReducerMap<State>
+	create & export empty State interface
 
 app.module:
 	add StoreModule.forRoot(reducers, {}) to imports
