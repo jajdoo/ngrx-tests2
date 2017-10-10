@@ -98,7 +98,7 @@ see 'adding feature example.txt'
 7. IMPORT NGRX REDUCERS MAP TO MODULE
 	[module-name]/[module-name].module.ts
 		import reducers from []
-		if in standalone module: 
+		if in feature module: 
 			add StoreModule.forFeature(reducers) to module imports
 		if in root module:
 			add StoreModule.forRoot(reducers) to module imports
